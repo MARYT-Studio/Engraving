@@ -1,0 +1,7 @@
+{
+  "package": "world.maryt.engraving.mixins",
+  "mixins": [
+    "MixinStylishRankManager"
+  ],
+  "refmap": "mixins.engraving.refmap.json"
+}
