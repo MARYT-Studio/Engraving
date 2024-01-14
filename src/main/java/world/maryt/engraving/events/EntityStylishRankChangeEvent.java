@@ -16,12 +16,12 @@ public class EntityStylishRankChangeEvent implements IEntityEvent {
     private final Entity entity;
     private int amount;
 
-    private final boolean isDrop;
+    private final String reason;
 
-    public EntityStylishRankChangeEvent(Entity entity, int amount, boolean isDrop) {
+    public EntityStylishRankChangeEvent(Entity entity, int amount, String reason) {
         this.entity = entity;
         this.amount = amount;
-        this.isDrop = isDrop;
+        this.reason = reason;
     }
 
     @ZenGetter("amount")
@@ -34,9 +34,9 @@ public class EntityStylishRankChangeEvent implements IEntityEvent {
     @ZenMethod
     public void setAmount(int amount) { this.amount = amount; }
 
-    @ZenGetter("isDrop")
+    @ZenGetter("reason")
     @ZenMethod
-    public boolean isDrop() { return this.isDrop; }
+    public String getReason() { return this.reason; }
 
     @Override
     public IEntity getEntity() {

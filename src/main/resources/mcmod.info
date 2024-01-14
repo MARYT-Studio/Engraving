@@ -1,16 +1,16 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
-  "version": "${version}",
-  "mcversion": "${mcversion}",
-  "url": "",
-  "updateUrl": "",
-  "authorList": ["CleanroomMC"],
-  "credits": "Authors of this project",
+  "modid": "engraving",
+  "name": "Engraving",
+  "description": "Simple tweak utility for SlashBlade mod.",
+  "version": "1.1",
+  "mcversion": "1.12.2",
+  "url": "https://github.com/MARYT-Studio/Engraving",
+  "updateUrl": "https://curseforge.com/minecraft/mc-mods/engraving",
+  "authorList": ["MARYT Studio"],
+  "credits": "RisingInIris2017",
   "logoFile": "",
   "screenshots": [],
-  "dependencies": []
+  "dependencies": ["slashblade", "crafttweaker", "mixinbooter"]
 }
 ]

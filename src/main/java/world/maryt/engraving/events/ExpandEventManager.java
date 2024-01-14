@@ -19,9 +19,9 @@ public class ExpandEventManager {
         return elEntityStylishRankChange.add(ev);
     }
 
-    public static Integer handleEntityStylishRankChangeEvent(Entity entity, int amount, boolean isDrop) {
+    public static Integer handleEntityStylishRankChangeEvent(Entity entity, int amount, String reason) {
         if (ExpandEventManager.elEntityStylishRankChange.hasHandlers()) {
-            EntityStylishRankChangeEvent event = new EntityStylishRankChangeEvent(entity, amount, isDrop);
+            EntityStylishRankChangeEvent event = new EntityStylishRankChangeEvent(entity, amount, reason);
             ExpandEventManager.elEntityStylishRankChange.publish(event);
             return event.getAmount();
         }

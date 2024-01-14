@@ -44,7 +44,7 @@ public abstract class MixinStylishRankManager {
     }
 
     @Unique
-    private static boolean engraving$isDrop = false;
+    private static String engraving$reason = "";
 
     /**
      * @author RisingInIris2017
@@ -57,7 +57,7 @@ public abstract class MixinStylishRankManager {
             if (!e.world.isRemote) {
                 NBTTagCompound tag = getTag(e);
                 int rankPoint = getTotalRankPoint(e);
-                Integer newAmount = ExpandEventManager.handleEntityStylishRankChangeEvent(e, amount, engraving$isDrop);
+                Integer newAmount = ExpandEventManager.handleEntityStylishRankChangeEvent(e, amount, engraving$reason);
                 if (newAmount == null) {
                     rankPoint += amount;
                 } else {
@@ -114,13 +114,15 @@ public abstract class MixinStylishRankManager {
             }
         }
 
-        engraving$isDrop = true;
+
         if (time < now - lastUpdate) {
+            engraving$reason = "DropLongTime";
             addRankPoint(e.getEntity(), -RankPoint.get(tag));
         } else {
+            engraving$reason = "DropShortTime";
             addRankPoint(e.getEntity(), -RankRange * 2);
         }
-        engraving$isDrop = false;
+        engraving$reason = "";
         LastRankPointUpdate.set(tag, now);
     }
 }
