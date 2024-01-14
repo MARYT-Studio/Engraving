@@ -1,7 +1,10 @@
 {
   "package": "world.maryt.engraving.mixins",
   "mixins": [
-    "MixinStylishRankManager"
+    "MixinStylishRankManager",
+    "MixinRecipeBladeSoulUpgrade",
+    "MixinEntityBladeStand",
+    "MixinItemProudSoul"
   ],
   "refmap": "mixins.engraving.refmap.json"
 }
