@@ -9,9 +9,6 @@ import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.*;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import world.maryt.engraving.interfaces.IMixinEntityBladeStand;
 
 @Mixin(value = EntityBladeStand.class, remap = false)
@@ -20,6 +17,8 @@ public abstract class MixinEntityBladeStand extends Entity implements IMixinEnti
         super(world);
     }
 
+
+    // Shadow fields and methods from SlashBlade mod
     @Final
     @Shadow
     private static final DataParameter<ItemStack> WatchIndexBlade
@@ -32,6 +31,13 @@ public abstract class MixinEntityBladeStand extends Entity implements IMixinEnti
     @Shadow
     private static final DataParameter<Integer> WatchIndexStandType
             = EntityDataManager.createKey(MixinEntityBladeStand.class, DataSerializers.VARINT);
+    @Shadow
+    public boolean setStandBlade(Entity e) {return false;}
+    @Shadow
+    public boolean hasBlade() {return false;}
+
+
+    // Engraving's own field and method
     @Unique
     private static final DataParameter<ItemStack> engraving$originalFenceItem =
         EntityDataManager.createKey(MixinEntityBladeStand.class, DataSerializers.ITEM_STACK);
@@ -51,18 +57,23 @@ public abstract class MixinEntityBladeStand extends Entity implements IMixinEnti
         this.getDataManager().register(WatchIndexStandType, 0);
         this.getDataManager().register(engraving$originalFenceItem, ItemStack.EMPTY);
     }
-    @Inject(
-            method = "hitByEntity(Lnet/minecraft/entity/Entity;)Z",
-            at = @At(
-                    value = "INVOKE",
-                    shift = At.Shift.AFTER,
-                    target = "Lmods/flammpfeil/slashblade/entity/EntityBladeStand;setDead()V"
-            ),
-            remap = false
-    )
-    private void inject_hitByEntity(Entity p_85031_1_, CallbackInfoReturnable<Boolean> cir) {
-        World world = p_85031_1_.world;
-        EntityItem droppedFenceItem = new EntityItem(world, this.posX, this.posY, this.posZ, this.engraving$getOriginalFenceItem());
-        world.spawnEntity(droppedFenceItem);
+    /**
+     * @author RisingInIris2017
+     * @reason Previous @Inject method does not work properly.
+     */
+    @Overwrite
+    public boolean hitByEntity(Entity entity) {
+        if (this.setStandBlade(entity)) {
+            return true;
+        } else if (!this.hasBlade() && entity.isSneaking()) {
+            if (!entity.world.isRemote) {
+                EntityItem droppedFenceItem = new EntityItem(entity.world, this.posX, this.posY, this.posZ, this.engraving$getOriginalFenceItem());
+                world.spawnEntity(droppedFenceItem);
+                this.setDead();
+            }
+            return true;
+        } else {
+            return super.hitByEntity(entity);
+        }
     }
 }
