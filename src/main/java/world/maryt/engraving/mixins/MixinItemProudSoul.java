@@ -6,6 +6,7 @@ import mods.flammpfeil.slashblade.item.ItemProudSoul;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -33,18 +34,22 @@ public abstract class MixinItemProudSoul extends Item {
 
         IBlockState state = world.getBlockState(pos);
         Block block = state.getBlock();
-        ItemStack targetBlockItem = new ItemStack(Item.getItemFromBlock(block), 1, block.damageDropped(state));
-        int[] targetBlockItemOreDictIDList = OreDictionary.getOreIDs(targetBlockItem);
+        Item targetBlockItem = Item.getItemFromBlock(block);
+
+        // Prevent getOreID() to blocks with no item form, and game won't crash.
+        if (targetBlockItem == Items.AIR) return super.onItemUse(player, world, pos, hand, side, hitX, hitY, hitZ);
+
+        ItemStack targetBlockItemStack = new ItemStack(targetBlockItem, 1, block.damageDropped(state));
+        int[] targetBlockItemOreDictIDList = OreDictionary.getOreIDs(targetBlockItemStack);
         boolean isFenceMatched = targetBlockItemOreDictIDList.length == 1 && OreDictionary.getOreName(targetBlockItemOreDictIDList[0]).equals("fenceWood");
         boolean isQuartzMatched = targetBlockItemOreDictIDList.length == 1 && OreDictionary.getOreName(targetBlockItemOreDictIDList[0]).equals("blockQuartz");
 
         if(!world.isRemote && isFenceMatched && player.isSneaking()){
-
             world.setBlockToAir(pos);
             EntityBladeStand e = new EntityBladeStand(world);
             e.setStandType(stack.getMetadata());
             e.setPositionAndRotation(pos.getX() + 0.5 ,pos.getY() + 0.5 ,pos.getZ() + 0.5,Math.round(player.rotationYaw / 45.0f) * 45.0f + 180.0f,e.rotationPitch);
-            ((IMixinEntityBladeStand)e).engraving$setOriginalFenceItem(targetBlockItem);
+            ((IMixinEntityBladeStand)e).engraving$setOriginalFenceItem(targetBlockItemStack);
             world.spawnEntity(e);
             return EnumActionResult.SUCCESS;
         }else if(stack.getMetadata() == 4 //crystal
