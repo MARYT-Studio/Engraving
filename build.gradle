@@ -130,6 +130,8 @@ dependencies {
     }
 
     // Mod Dependencies
+    implementation rfg.deobf("curse.maven:mysterious-mountain-lib-368098:3254750")
+    implementation rfg.deobf('curse.maven:the-last-smith-306385:3314856')
 
     implementation rfg.deobf('curse.maven:slashblade-241596:3039993')
 
