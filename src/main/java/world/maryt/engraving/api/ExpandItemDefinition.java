@@ -3,10 +3,7 @@ package world.maryt.engraving.api;
 import crafttweaker.annotations.ZenRegister;
 import crafttweaker.api.item.IItemDefinition;
 import mods.flammpfeil.slashblade.item.ItemSlashBlade;
-import net.minecraft.item.ItemAxe;
-import net.minecraft.item.ItemHoe;
-import net.minecraft.item.ItemSword;
-import net.minecraft.item.ItemTool;
+import net.minecraft.item.*;
 import stanhebben.zenscript.annotations.ZenExpansion;
 import stanhebben.zenscript.annotations.ZenMethod;
 
@@ -33,5 +30,14 @@ public class ExpandItemDefinition {
                 (!isAxeInclude && definition.getInternal() instanceof ItemSword);
     }
 
-    // TODO: isArmor
+    // If you would like to decide how to classify axes...
+    @ZenMethod
+    public static boolean isAxes(IItemDefinition definition) {
+        return definition.getInternal() instanceof ItemAxe;
+    }
+
+    @ZenMethod
+    public static boolean isArmor(IItemDefinition definition) {
+        return definition.getInternal() instanceof ItemArmor;
+    }
 }
