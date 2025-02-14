@@ -3,13 +3,13 @@
   "modid": "engraving",
   "name": "Engraving",
   "description": "Simple tweak utility for SlashBlade mod.",
-  "version": "1.2",
-  "mcversion": "1.12.2",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
   "url": "https://github.com/MARYT-Studio/Engraving",
   "updateUrl": "https://curseforge.com/minecraft/mc-mods/engraving",
   "authorList": ["MARYT Studio"],
   "credits": "RisingInIris2017",
-  "logoFile": "",
+  "logoFile": "logo.png",
   "screenshots": [],
   "dependencies": ["slashblade", "crafttweaker", "mixinbooter"]
 }

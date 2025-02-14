@@ -1,13 +1,18 @@
 package world.maryt.engraving;
 
 import crafttweaker.mc1120.commands.CTChatCommand;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import world.maryt.engraving.commands.AttackTypesCommand;
+import world.maryt.engraving.events.AnvilUpdateEventIdInit;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -20,6 +25,8 @@ public class Engraving {
     public static final String NAME = "Engraving";
     public static final String VERSION = Tags.VERSION;
     public static final String DEPENDENCIES = "after:slashblade;after:mm-lib;after:lastsmith;required-after:crafttweaker;required-after:mixinbooter";
+    public static boolean DEBUG = false;
+    public static Logger LOGGER = LogManager.getLogger(NAME);
     public static boolean Blessed = false;
     public static int stylishRankDropTimeEasy = 200;
     public static int stylishRankDropTimeNormal = 200;
@@ -31,7 +38,12 @@ public class Engraving {
         Configuration config = new Configuration(new File(Loader.instance().getConfigDir(), "engraving.cfg"));
         try {
             config.load();
-
+            {
+                Property property = config.get(Configuration.CATEGORY_GENERAL, "DEBUG", Engraving.DEBUG);
+                property.setComment("Enable this only for debug purposes.");
+                Engraving.DEBUG = property.getBoolean();
+                property.setShowInGui(true);
+            }
             {
                 Property property = config.get(Configuration.CATEGORY_GENERAL, "Blessed", Engraving.Blessed);
                 property.setComment("");
@@ -73,5 +85,10 @@ public class Engraving {
     @Mod.EventHandler
     public static void onServerStarting(FMLServerStartingEvent event) {
         CTChatCommand.registerCommand(new AttackTypesCommand());
+    }
+
+    @Mod.EventHandler
+    public void init(FMLInitializationEvent event){
+        MinecraftForge.EVENT_BUS.register(new AnvilUpdateEventIdInit());
     }
 }
