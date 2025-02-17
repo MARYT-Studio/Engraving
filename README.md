@@ -6,7 +6,7 @@
 
 ## Overview
 
-Engraving is a simple tweak utility for SlashBlade mod.
+Engraving (named after the meaning of Hanzi "錾", patterns that carved on the body of sword) is a simple tweak utility for SlashBlade mod.
 
 Currentyly Engraving has features below:
 
