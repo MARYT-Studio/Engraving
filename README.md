@@ -66,10 +66,10 @@ Engraving extends `IItemDefinition` and adds these new ZenMethods below:
 
 With these ZenMethods, you can easily determine if an IItemStack in your ZenScript is a certain type of players' equipments.
 
-## Count the times of `AnvilUpdateEvent` being fired (From v1.5)
+## `AnvilUpdateEvent` Expansion (From v1.5)
 
-`AnvilUpdateEvent` is fired **_multiple_** times every time player put 2 items on slots of Anvil, rather than **_single_** time. Besides, it may be fired **2 or 3** times on each side. These two factors make tracking this event difficult.
+`AnvilUpdateEvent` is fired **_multiple_** times every time player put 2 items on slots of Anvil, rather than **_single_** time.
 
-Engraving let the **serverside** to count how many times this event is fired in the player's NBT tag to help solving this problem.
+Besides, the numbers of times it is fired on each side are **nearly random**  (2 or 3 typically) . These two factors make tracking this event difficult.
 
-And, every time the player logged in, the counter is cleared.
+Engraving adds a new ZenMethod for `AnvilUpdateEvent`: `getTimeStamp()`, it will return UNIX Timestamp of the time when the event fired.

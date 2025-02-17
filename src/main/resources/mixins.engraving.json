@@ -1,7 +1,6 @@
 {
   "package": "world.maryt.engraving.mixins",
   "mixins": [
-    "MixinContainerRepair",
     "MixinStylishRankManager",
     "MixinRecipeBladeSoulUpgrade",
     "MixinEntityBladeStand",
