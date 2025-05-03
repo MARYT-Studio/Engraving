@@ -1,0 +1,64 @@
+apply from: 'gradle/scripts/helpers.gradle'
+
+repositories {
+    // Other repositories described by default:
+    // CleanroomMC: https://maven.cleanroommc.com
+    maven {
+        name 'BlameJared'
+        url 'https://maven.blamejared.com/'
+        content {
+            includeGroup 'CraftTweaker2'
+        }
+    }
+    exclusiveContent {
+        forRepository {
+            maven {
+                name 'CurseMaven'
+                url 'https://curse.cleanroommc.com'
+            }
+        }
+        filter {
+            includeGroup 'curse.maven'
+        }
+    }   
+    mavenLocal() // Must be last for caching to work
+}
+
+dependencies {
+    // Include StripLatestForgeRequirements by default for the dev env, saves everyone a hassle
+    runtimeOnly 'com.cleanroommc:strip-latest-forge-requirements:1.0'
+    // Include OSXNarratorBlocker by default for the dev env, for M1+ Macs
+    runtimeOnly 'com.cleanroommc:osxnarratorblocker:1.0'
+
+    implementation rfg.deobf('curse.maven:had-enough-items-557549:4810661')
+
+    // Hard Dependencies
+    implementation rfg.deobf('curse.maven:slashblade-241596:3039993')
+
+    implementation rfg.deobf('curse.maven:mysterious-mountain-lib-368098:3254750')
+    implementation rfg.deobf("curse.maven:sjap-310187:6473646")
+    implementation rfg.deobf("curse.maven:the-last-smith-306385:3314856")
+    implementation rfg.deobf('curse.maven:sakura-333079:3254753')
+
+    implementation rfg.deobf('CraftTweaker2:CraftTweaker2-MC1120-Main:1.12-4.1.20.695')
+    implementation rfg.deobf('CraftTweaker2:CraftTweaker2-API:4.1.20.695')
+    implementation rfg.deobf('CraftTweaker2:ZenScript:4.1.20.695')
+
+    // Optional Mod Dependencies
+    compileOnly rfg.deobf('curse.maven:patchouli-306770:3162874')
+    compileOnly rfg.deobf("curse.maven:botania-225643:3330934")
+    compileOnly rfg.deobf('curse.maven:baubles-227083:2518667')
+    compileOnly rfg.deobf('curse.maven:thaumcraft-223628:2629023')
+    compileOnly rfg.deobf('curse.maven:industrial-craft-242638:2980904')
+    compileOnly rfg.deobf('curse.maven:the-twilight-forest-227639:2818055')
+    compileOnly rfg.deobf('curse.maven:terrafirmacraft-302973:3645502')
+
+    // Recipe Tweaks debugging may need them
+    runtimeOnly rfg.deobf('curse.maven:patchouli-306770:3162874')
+    runtimeOnly rfg.deobf("curse.maven:botania-225643:3330934")
+    runtimeOnly rfg.deobf('curse.maven:baubles-227083:2518667')
+    runtimeOnly rfg.deobf('curse.maven:thaumcraft-223628:2629023')
+    runtimeOnly rfg.deobf('curse.maven:industrial-craft-242638:2980904')
+    runtimeOnly rfg.deobf('curse.maven:the-twilight-forest-227639:2818055')
+    runtimeOnly rfg.deobf('curse.maven:terrafirmacraft-302973:3645502')
+}

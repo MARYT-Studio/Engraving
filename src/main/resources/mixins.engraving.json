@@ -1,16 +1,16 @@
 {
-  "package": "world.maryt.engraving.mixins",
-  "mixins": [
-    "MixinStylishRankManager",
-    "MixinRecipeBladeSoulUpgrade",
-    "MixinEntityBladeStand",
-    "MixinItemProudSoul"
-  ],
-  "refmap": "mixins.engraving.refmap.json",
-  "required": true,
-  "target": "@env(DEFAULT)",
-  "minVersion": "0.8.5",
-  "compatibilityLevel": "JAVA_8",
-  "server": [],
-  "client": []
+	"package": "world.maryt.engraving.mixins",
+	"required": true,
+	"refmap": "${mixin_refmap}",
+	"target": "@env(DEFAULT)",
+	"minVersion": "0.8.5",
+	"compatibilityLevel": "JAVA_8",
+	"mixins": [
+		"MixinStylishRankManager",
+		"MixinRecipeBladeSoulUpgrade",
+		"MixinEntityBladeStand",
+		"MixinItemProudSoul"
+ 	],
+	"server": [],
+	"client": []
 }
