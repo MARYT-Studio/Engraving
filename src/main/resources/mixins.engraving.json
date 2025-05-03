@@ -1,15 +1,15 @@
 {
-	"package": "world.maryt.engraving.mixins",
+	"package": "world.maryt.engraving.core.mixins",
 	"required": true,
 	"refmap": "${mixin_refmap}",
 	"target": "@env(DEFAULT)",
 	"minVersion": "0.8.5",
 	"compatibilityLevel": "JAVA_8",
 	"mixins": [
-		"MixinStylishRankManager",
-		"MixinRecipeBladeSoulUpgrade",
-		"MixinEntityBladeStand",
-		"MixinItemProudSoul"
+		"features.MixinStylishRankManager",
+		"tweaks.MixinRecipeBladeSoulUpgrade",
+		"fixes.MixinEntityBladeStand",
+		"fixes.MixinItemProudSoul"
  	],
 	"server": [],
 	"client": []

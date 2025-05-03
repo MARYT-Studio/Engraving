@@ -1,4 +1,4 @@
-package world.maryt.engraving.interfaces;
+package world.maryt.engraving.core.interfaces;
 
 import net.minecraft.item.ItemStack;
 

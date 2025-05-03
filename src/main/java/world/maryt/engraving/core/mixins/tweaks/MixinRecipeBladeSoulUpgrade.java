@@ -1,4 +1,7 @@
-package world.maryt.engraving.mixins;
+// TODO: Make this class disable when SJAP 1.7.0+ is present, or let config of SJAP control this.
+
+
+package world.maryt.engraving.core.mixins.tweaks;
 
 import com.google.common.collect.Maps;
 import mods.flammpfeil.slashblade.item.ItemProudSoul;

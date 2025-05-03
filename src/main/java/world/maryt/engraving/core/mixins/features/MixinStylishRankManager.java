@@ -1,4 +1,4 @@
-package world.maryt.engraving.mixins;
+package world.maryt.engraving.core.mixins.features;
 
 import mods.flammpfeil.slashblade.TagPropertyAccessor;
 import mods.flammpfeil.slashblade.ability.StylishRankManager;

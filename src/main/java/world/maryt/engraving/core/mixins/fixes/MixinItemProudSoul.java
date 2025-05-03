@@ -1,4 +1,7 @@
-package world.maryt.engraving.mixins;
+// TODO: Make all classes under "fixes" package disable when SJAP 1.7.0+ is present.
+
+
+package world.maryt.engraving.core.mixins.fixes;
 
 import mods.flammpfeil.slashblade.entity.EntityBladeStand;
 import mods.flammpfeil.slashblade.entity.EntityGrimGripKey;
@@ -19,7 +22,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.oredict.OreDictionary;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
-import world.maryt.engraving.interfaces.IMixinEntityBladeStand;
+import world.maryt.engraving.core.interfaces.IMixinEntityBladeStand;
 
 @Mixin(value = ItemProudSoul.class, remap = false)
 public abstract class MixinItemProudSoul extends Item {
