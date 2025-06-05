@@ -12,9 +12,13 @@ Currentyly Engraving has features below:
 
 ## Tweak Features
 
-All wood fences (whose item has `fenceWood` oredict) can be turned into Blade Stand, not only the oak one.
-Breaking the Blade Stand will drop the original fence.
-Proudsoul items can be crafted from materials with different enchantments now, while the result item will have no enchantment.
+- Proudsoul items can be crafted from materials with different enchantments now, while the result item will have no enchantment.
+- Roukan and Hakurou Zenpurin has alter recipes if Thaumcraft is not present. Need to be enabled in config before use this feature. 
+
+Features below are merged into SlashBlade Japanese Addon Pack (SJAP) 1.7.0+; only if you have legacy SJAP versions (below 1.7.0), Engraving will apply these features: 
+
+- All wood fences (whose item has `fenceWood` oredict) can be turned into Blade Stand, not only the oak one.
+- Breaking the Blade Stand will drop the original fence.
 
 ## CraftTweaker Expansion
 

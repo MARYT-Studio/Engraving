@@ -13,8 +13,10 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
-import world.maryt.engraving.Engraving;
+import world.maryt.engraving.config.EngravingConfig;
 import world.maryt.engraving.events.ExpandEventManager;
+
+import static world.maryt.engraving.config.ConfigParser.*;
 
 import java.util.Set;
 
@@ -83,7 +85,7 @@ public abstract class MixinStylishRankManager {
         if(e.getSource().isUnblockable() && e.getSource().getTrueSource() != null) return;
 
         String type = e.getSource().getDamageType();
-        if (Engraving.Blessed && Engraving.bypassDamageTypes.contains(type)) return;
+        if (getBlessed() && getBypassDamageTypes().contains(type)) return;
 
         //反射攻撃ではないこと
         if(e.getSource().getTrueSource() != null && e.getSource().getTrueSource() instanceof EntityLivingBase){
@@ -101,16 +103,16 @@ public abstract class MixinStylishRankManager {
         long now = e.getEntity().world.getTotalWorldTime();
 
         int time = RankRange * 2;
-        if (Engraving.Blessed) {
+        if (getBlessed()) {
             int difficulty = e.getEntity().getEntityWorld().getWorldInfo().getDifficulty().getDifficultyId();
             if (difficulty == 1) {
-                time = Engraving.stylishRankDropTimeEasy;
+                time = EngravingConfig.stylishRankDropTimeEasy;
             }
             if (difficulty == 2) {
-                time = Engraving.stylishRankDropTimeNormal;
+                time = EngravingConfig.stylishRankDropTimeNormal;
             }
             if (difficulty == 3) {
-                time = Engraving.stylishRankDropTimeHard;
+                time = EngravingConfig.stylishRankDropTimeHard;
             }
         }
 

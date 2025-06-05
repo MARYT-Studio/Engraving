@@ -6,9 +6,8 @@
 	"minVersion": "0.8.5",
 	"compatibilityLevel": "JAVA_8",
 	"mixins": [
-		"alt_recipes.MixinBladeRoukanTC",
-		"features.MixinStylishRankManager",
-		"tweaks.MixinRecipeBladeSoulUpgrade"
+		"fixes.MixinEntityBladeStand",
+		"fixes.MixinItemProudSoul"
 	],
 	"server": [],
 	"client": []
