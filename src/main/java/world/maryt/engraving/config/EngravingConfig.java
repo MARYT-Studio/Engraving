@@ -12,6 +12,9 @@ import world.maryt.engraving.Engraving;
 public class EngravingConfig {
 	private final static String config = Engraving.MOD_ID + ".config.";
 
+	// Keep this config variable for debug usage.
+	// To see if current version has features binding to this, comment the annotation.
+	@SuppressWarnings("unused")
 	@Config.LangKey(config + "debug")
 	@Config.Comment("Enable this only for debug purposes.")
 	public static boolean DEBUG = false;
@@ -34,7 +37,7 @@ public class EngravingConfig {
 	public static int stylishRankDropTimeHard = 200;
 
 	@Config.LangKey(config + "bypass_damage_types")
-	@Config.Comment("Time length between player updates Stylish Rank points last time and player get damaged (under HARD difficulty.). Integer, \"tick\" as unit.")
+	@Config.Comment("Damage Types that player can bypass Stylish Rank drop when get these types of damage.")
 	public static String[] bypassDamageTypes = new String[]{};
 
 	@Config.RequiresMcRestart

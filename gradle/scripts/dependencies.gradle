@@ -30,6 +30,8 @@ dependencies {
     // Include OSXNarratorBlocker by default for the dev env, for M1+ Macs
     runtimeOnly 'com.cleanroommc:osxnarratorblocker:1.0'
 
+    implementation 'com.cleanroommc:configanytime:1.0'
+
     implementation rfg.deobf('curse.maven:had-enough-items-557549:4810661')
 
     // Hard Dependencies
@@ -40,9 +42,9 @@ dependencies {
     implementation rfg.deobf("curse.maven:the-last-smith-306385:3314856")
     implementation rfg.deobf('curse.maven:sakura-333079:3254753')
 
-    implementation rfg.deobf('CraftTweaker2:CraftTweaker2-MC1120-Main:1.12-4.1.20.695')
-    implementation rfg.deobf('CraftTweaker2:CraftTweaker2-API:4.1.20.695')
-    implementation rfg.deobf('CraftTweaker2:ZenScript:4.1.20.695')
+    implementation rfg.deobf('CraftTweaker2:CraftTweaker2-MC1120-Main:1.12-4.1.20.703')
+    implementation rfg.deobf('CraftTweaker2:CraftTweaker2-API:4.1.20.703')
+    implementation rfg.deobf('CraftTweaker2:ZenScript:4.1.20.703')
 
     // Optional Mod Dependencies
     compileOnly rfg.deobf('curse.maven:patchouli-306770:3162874')
@@ -61,4 +63,7 @@ dependencies {
     runtimeOnly rfg.deobf('curse.maven:industrial-craft-242638:2980904')
     runtimeOnly rfg.deobf('curse.maven:the-twilight-forest-227639:2818055')
     runtimeOnly rfg.deobf('curse.maven:terrafirmacraft-302973:3645502')
+
+    // Test Compatibility
+    implementation rfg.deobf("curse.maven:zenutil-401178:6613618")
 }
