@@ -38,8 +38,8 @@ dependencies {
     implementation rfg.deobf('curse.maven:slashblade-241596:3039993')
 
     implementation rfg.deobf('curse.maven:mysterious-mountain-lib-368098:3254750')
-    implementation rfg.deobf("curse.maven:sjap-310187:6473646")
-    implementation rfg.deobf("curse.maven:the-last-smith-306385:3314856")
+    implementation rfg.deobf("curse.maven:sjap-310187:6490958")
+    implementation rfg.deobf("curse.maven:the-last-smith-306385:6555769")
     implementation rfg.deobf('curse.maven:sakura-333079:3254753')
 
     implementation rfg.deobf('CraftTweaker2:CraftTweaker2-MC1120-Main:1.12-4.1.20.703')
