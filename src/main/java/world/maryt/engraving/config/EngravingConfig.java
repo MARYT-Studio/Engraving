@@ -41,10 +41,20 @@ public class EngravingConfig {
 	public static String[] bypassDamageTypes = new String[]{};
 
 	@Config.RequiresMcRestart
+	@Config.LangKey(config + "alter_recipe_fortress")
+	@Config.Comment("Give the three Fortress Blade (Thaumcraft Compat) a crafting table recipe and no need for Thaumcraft Research. Advancement requirements depend on their material SlashBlade respectively.")
+	public static boolean alterRecipeFortress = false;
+
+	@Config.RequiresMcRestart
 	@Config.LangKey(config + "alter_recipe_roukan_xf")
-	@Config.Comment("Give Roukan Senpurin (Thaumcraft Compat) a crafting table recipe and no need for advancement & TC Research.")
+	@Config.Comment("Give Roukan Senpurin (Thaumcraft Compat) a crafting table recipe and no need for advancement & Thaumcraft Research.")
 	public static boolean alterRecipeRoukanXF = false;
-	
+
+	@Config.RequiresMcRestart
+	@Config.LangKey(config + "alter_recipe_roukan_bot")
+	@Config.Comment("Give SakuraGiri (Botania Compat) a crafting table recipe and no need for advancement & Botania Research.")
+	public static boolean alterRecipeRoukanBotania = false;
+
 	@SubscribeEvent
 	public static void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent event) {
 		if (event.getModID().equals(Engraving.MOD_ID)) {

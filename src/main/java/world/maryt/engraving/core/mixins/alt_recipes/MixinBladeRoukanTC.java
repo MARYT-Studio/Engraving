@@ -4,7 +4,7 @@ import cn.mcmod_mmf.mmlib.util.RecipesUtil;
 import cn.mmf.lastsmith.blades.BladeLoader;
 import cn.mmf.lastsmith.blades.compat.BladeRoukanTC;
 import cn.mmf.lastsmith.event.RegisterSlashBladeRecipeEvent;
-import cn.mmf.lastsmith.recipe.RecipeAwakeBladeTLS;
+import mods.flammpfeil.slashblade.RecipeAwakeBlade;
 import mods.flammpfeil.slashblade.item.ItemSlashBlade;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -53,9 +53,8 @@ public abstract class MixinBladeRoukanTC {
         RecipesUtil.getInstance().addRecipe(
                 Engraving.MOD_ID,
                 "flammpfeil.slashblade.named.roukan_xf",
-                new RecipeAwakeBladeTLS(
+                new RecipeAwakeBlade(
                         new ResourceLocation(Engraving.MOD_ID, "flammpfeil.slashblade.named.roukan_xf"),
-                        "sakura_blade",
                         roukanXF,
                         roukan,
                         " FQ",
@@ -77,9 +76,8 @@ public abstract class MixinBladeRoukanTC {
         RecipesUtil.getInstance().addRecipe(
                 Engraving.MOD_ID,
                 "flammpfeil.slashblade.named.hakurou_xf",
-                new RecipeAwakeBladeTLS(
+                new RecipeAwakeBlade(
                         new ResourceLocation(Engraving.MOD_ID, "flammpfeil.slashblade.named.hakurou_xf"),
-                        "sakura_blade",
                         hakurouXF,
                         hakurou,
                         " FQ",

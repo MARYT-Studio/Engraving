@@ -1,15 +1,18 @@
 {
-	"package": "world.maryt.engraving.core.mixins",
-	"required": true,
-	"refmap": "${mixin_refmap}",
-	"target": "@env(DEFAULT)",
-	"minVersion": "0.8.5",
-	"compatibilityLevel": "JAVA_8",
-	"mixins": [
+	"package" : "world.maryt.engraving.core.mixins",
+	"required" : true,
+	"refmap" : "${mixin_refmap}",
+	"target" : "@env(DEFAULT)",
+	"minVersion" : "0.8.5",
+	"compatibilityLevel" : "JAVA_8",
+	"mixins" : [
+		"alt_recipes.MixinBladeFortressSlashBlade",
+		"alt_recipes.MixinBladeRoukanBotania",
 		"alt_recipes.MixinBladeRoukanTC",
+		"alt_recipes.MixinBladeTerra",
 		"features.MixinStylishRankManager",
 		"tweaks.MixinRecipeBladeSoulUpgrade"
 	],
-	"server": [],
-	"client": []
+	"server" : [],
+	"client" : []
 }
