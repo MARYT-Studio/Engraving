@@ -20,6 +20,12 @@ Features below are merged into SlashBlade Japanese Addon Pack (SJAP) 1.7.0+; onl
 - All wood fences (whose item has `fenceWood` oredict) can be turned into Blade Stand, not only the oak one.
 - Breaking the Blade Stand will drop the original fence.
 
+## Alternate Recipes(Since v1.7)
+
+Engraving provides alternate crafting table recipes for Thaumcraft and Botania compat SlashBlades that added by The Last Smith and SJAP.
+
+These alternate recipes are disabled by default, if you need them, you may enable them via the corresponding configurations.
+
 ## CraftTweaker Expansion
 
 ### New CraftTweaker event 
@@ -48,7 +54,7 @@ It has 3 possible result:
 
 "" -> Other reason.
 
-### `IItemDefinition` Expansion (From v1.4)
+### `IItemDefinition` Expansion (Since v1.4)
 
 Engraving extends `IItemDefinition` and adds these new ZenMethods below:
 
@@ -70,7 +76,7 @@ Engraving extends `IItemDefinition` and adds these new ZenMethods below:
 
 With these ZenMethods, you can easily determine if an IItemStack in your ZenScript is a certain type of players' equipments.
 
-## `AnvilUpdateEvent` Expansion (From v1.5)
+## `AnvilUpdateEvent` Expansion (Since v1.5)
 
 `AnvilUpdateEvent` is fired **_multiple_** times every time player put 2 items on slots of Anvil, rather than **_single_** time.
 
